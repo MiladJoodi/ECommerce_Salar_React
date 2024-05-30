@@ -6,6 +6,9 @@ type TButton = ComponentProps<"button"> & {
 }
 
 function Button({children, variant, ...rest}: TButton) {
+
+  console.log(checkVariant(variant))
+
   return (
     <button {...rest}>
         {children}
@@ -13,4 +16,10 @@ function Button({children, variant, ...rest}: TButton) {
   )
 }
 
-export default Button
+export default Button;
+
+function checkVariant(variant){
+  if(variant === "primary"){
+    return {backgroundColor: "blue"}
+  }
+}
