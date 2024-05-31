@@ -10,7 +10,7 @@ function Button({children, variant, style, ...rest}: TButton) {
   console.log(checkVariant(variant))
 
   return (
-    <button {...rest} style={{...style, ...checkVariant(variant)}}>
+    <button {...rest} style={{borderRadius: "6px", padding: "4px 8px" ,...style, ...checkVariant(variant)}}>
         {children}
     </button>
   )
@@ -20,7 +20,7 @@ export default Button;
 
 function checkVariant(variant:TVariant){
   if(variant === "primary"){
-    return {backgroundColor: "blue", color: "white"};
+    return {backgroundColor: "#308bff", color: "white"};
   } else if(variant === "secondary"){
     return {backgroundColor: "gray", color: "black"};
   } 

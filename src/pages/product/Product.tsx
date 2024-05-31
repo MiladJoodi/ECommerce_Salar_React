@@ -38,7 +38,7 @@ function Product() {
             />
 
             <Button
-            style={{padding: "2px 6px"}}
+            className="mt-2 w-full !py-3"
             variant="primary"
             onClick={()=>alert("hello")}
             >
