@@ -2,12 +2,12 @@ import React, { ComponentProps } from 'react'
 type TVariant = "primary" | "secondary" | "danger" | "warning" | "success"
 
 type TButton = ComponentProps<"button"> & {
-    variant: TVariant
+    variant?: TVariant
 }
 
 function Button({children, variant, style, ...rest}: TButton) {
 
-  console.log(checkVariant(variant))
+  // console.log(checkVariant(variant))
 
   return (
     <button {...rest} style={{borderRadius: "6px", padding: "4px 8px" ,...style, ...checkVariant(variant)}}>
@@ -18,14 +18,14 @@ function Button({children, variant, style, ...rest}: TButton) {
 
 export default Button;
 
-function checkVariant(variant:TVariant){
+function checkVariant(variant?:TVariant){
   if(variant === "primary"){
     return {backgroundColor: "#308bff", color: "white"};
   } else if(variant === "secondary"){
     return {backgroundColor: "gray", color: "black"};
   } 
   else if(variant === "danger"){
-    return {backgroundColor: "gray", color: "black"}
+    return {backgroundColor: "red", color: "black"}
   }
   else if(variant === "success"){
     return {backgroundColor: "gray", color: "black"}

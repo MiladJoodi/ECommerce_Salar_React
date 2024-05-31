@@ -37,13 +37,7 @@ function Product() {
               alt=""
             />
 
-            <Button
-            className="mt-2 w-full !py-3"
-            variant="primary"
-            onClick={()=>alert("hello")}
-            >
-                Add to Cart
-            </Button>
+            <Button className="mt-2 w-full !py-3" variant="primary">Add to Cart</Button>
 
             <div>
                 
