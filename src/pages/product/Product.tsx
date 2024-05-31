@@ -38,6 +38,7 @@ function Product() {
             />
 
             <Button
+            style={{padding: "2px 6px"}}
             variant="primary"
             onClick={()=>alert("hello")}
             >
