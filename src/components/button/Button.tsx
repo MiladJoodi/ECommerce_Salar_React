@@ -25,10 +25,10 @@ function checkVariant(variant?:TVariant){
     return {backgroundColor: "gray", color: "black"};
   } 
   else if(variant === "danger"){
-    return {backgroundColor: "red", color: "black"}
+    return {backgroundColor: "red", color: "white"}
   }
   else if(variant === "success"){
-    return {backgroundColor: "gray", color: "black"}
+    return {backgroundColor: "green", color: "white"}
   }
   else if(variant === "warning"){
     return {backgroundColor: "yellow", color: "white"}
