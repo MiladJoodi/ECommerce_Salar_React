@@ -3,9 +3,10 @@ import ProductItem from "../../components/productItem/ProductItem";
 import Container from "../../components/container/Container";
 import { Link } from "react-router-dom";
 import { getProducts } from "../../services/api";
+import { Products } from "../../types/servers";
 
 function Store() {
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState<Products[]>([]);
 
   useEffect(() => {
     getProducts().then((result) => {
@@ -13,6 +14,7 @@ function Store() {
       setProducts(result);
     });
   }, []);
+  console.log(products)
 
   return (
     <div>
@@ -22,7 +24,7 @@ function Store() {
         <div className="grid grid-cols-4 gap-4 mt-4">
           {products.map((item) => (
             <Link to={`/product/${1}`}>
-              <ProductItem />
+              <ProductItem {...item} />
             </Link>
           ))}
         </div>
