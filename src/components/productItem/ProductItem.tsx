@@ -1,8 +1,8 @@
 import { Products } from "../../types/servers";
 
-type ProductItem = Products;
+type TProductItem = Products;
 
-function ProductItem({title, price, description,image}: ProductItem) {
+function ProductItem({title, price, description,image}: TProductItem) {
   return (
     <div className="shadow border rounded pb-2">
       <img
