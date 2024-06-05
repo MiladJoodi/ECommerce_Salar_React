@@ -22,7 +22,7 @@ function Store() {
         <div className="grid grid-cols-4 gap-4 mt-4">
           {products.map((item) => (
             <Link to={`/product/${1}`}>
-              <ProductItem />
+              <ProductItem {...item} />
             </Link>
           ))}
         </div>
