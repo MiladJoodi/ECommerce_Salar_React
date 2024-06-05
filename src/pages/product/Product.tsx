@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Container from "../../components/container/Container";
 import Button from "../../components/button/Button";
+import { getProduct } from "../../services/api";
 
 function Product() {
-  const params = useParams();
+  const params = useParams<{id: string}>();
+
+  useEffect(()=>{
+    getProduct(params.id)
+  }, [])
 
   return (
     <div>
