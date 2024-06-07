@@ -14,7 +14,6 @@ function Store() {
       setProducts(result);
     });
   }, []);
-  console.log(products)
 
   return (
     <div>
@@ -23,11 +22,7 @@ function Store() {
 
         <div className="grid grid-cols-4 gap-4 mt-4">
           {products.map((item) => (
-<<<<<<< HEAD
-            <Link to={`/product/${1}`}>
-=======
-            <Link to={`/product/${item.id}`}>
->>>>>>> 267ff6421c9cc5bee583b68e959e1b92156781b2
+            <Link key={item.id} to={`/product/${item.id}`}>
               <ProductItem {...item} />
             </Link>
           ))}

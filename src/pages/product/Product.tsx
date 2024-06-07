@@ -8,7 +8,9 @@ function Product() {
   const params = useParams<{id: string}>();
 
   useEffect(()=>{
-    getProduct(params.id)
+    getProduct(params.id as string).then(data=> {
+      console.log(data)
+    })
   }, [])
 
   return (
