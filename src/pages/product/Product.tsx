@@ -1,15 +1,17 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Container from "../../components/container/Container";
 import Button from "../../components/button/Button";
 import { getProduct } from "../../services/api";
+import { IProduct } from "../../types/servers";
 
 function Product() {
   const params = useParams<{id: string}>();
+  const [product, setProduct] = useState<IProduct>()
 
   useEffect(()=>{
     getProduct(params.id as string).then(data=> {
-      console.log(data)
+      setProduct(data)
     })
   }, [])
 
