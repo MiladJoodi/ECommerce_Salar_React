@@ -40,32 +40,42 @@ function Product() {
           <div className="col-span-2 p-4 bg-blue-200">
             <img className="rounded" src={product?.image} alt="" />
 
-            {/*Increase */}
-            <Button
-              className="mt-2 w-full !py-3"
-              variant="primary"
-              onClick={() =>
-                handleIncreaseProductQty(parseInt(params.id as string))
-              }
-            >
-              Add to Cart
-            </Button>
+            {getProductQty(parseInt(params.id as string)) === 0 ? (
+              <Button
+                className="mt-2 w-full !py-3"
+                variant="primary"
+                onClick={() =>
+                  handleIncreaseProductQty(parseInt(params.id as string))
+                }
+              >
+                Add to Cart
+              </Button>
+            ) : (
+              <div className="grid grid-cols-3">
+                <Button
+                className="mt-2 w-full"
+                variant="primary"
+                onClick={() =>
+                  handleIncreaseProductQty(parseInt(params.id as string))
+                }
+              >
+                +
+              </Button>
 
-            {/* qty */}
-            <span>{getProductQty(parseInt(params.id as string))}</span>
+                <span className="flex justify-center items-center">{getProductQty(parseInt(params.id as string))}</span>
 
-            {/*Decrease */}
-            <Button
-              className="mt-2 w-full !py-3"
-              variant="primary"
-              onClick={() =>
-                handleDecreaseProductQty(parseInt(params.id as string))
-              }
-            >
-              -
-            </Button>
+                <Button
+                  className="mt-2 w-full"
+                  variant="primary"
+                  onClick={() =>
+                    handleDecreaseProductQty(parseInt(params.id as string))
+                  }
+                >
+                  -
+                </Button>
+              </div>
+            )}
 
-            <div></div>
           </div>
         </div>
       </Container>
