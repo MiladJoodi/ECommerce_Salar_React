@@ -11,6 +11,7 @@ function Product() {
   const [product, setProduct] = useState<IProduct>();
 
   const {
+    handleRemoveProduct,
     getProductQty,
     handleDecreaseProductQty,
     handleIncreaseProductQty,
@@ -48,34 +49,44 @@ function Product() {
                   handleIncreaseProductQty(parseInt(params.id as string))
                 }
               >
-                Add to Cart
+                اضافه به سبد
               </Button>
             ) : (
-              <div className="grid grid-cols-3">
-                <Button
-                className="mt-2 w-full"
-                variant="primary"
-                onClick={() =>
-                  handleIncreaseProductQty(parseInt(params.id as string))
-                }
-              >
-                +
-              </Button>
+              <>
+                <div className="grid grid-cols-3">
+                  <Button
+                    className="mt-2 w-full"
+                    variant="primary"
+                    onClick={() =>
+                      handleIncreaseProductQty(parseInt(params.id as string))
+                    }
+                  >
+                    +
+                  </Button>
 
-                <span className="flex justify-center items-center">{getProductQty(parseInt(params.id as string))}</span>
+                  <span className="flex justify-center items-center">
+                    {getProductQty(parseInt(params.id as string))}
+                  </span>
 
+                  <Button
+                    className="mt-2 w-full"
+                    variant="primary"
+                    onClick={() =>
+                      handleDecreaseProductQty(parseInt(params.id as string))
+                    }
+                  >
+                    -
+                  </Button>
+                </div>
                 <Button
-                  className="mt-2 w-full"
-                  variant="primary"
-                  onClick={() =>
-                    handleDecreaseProductQty(parseInt(params.id as string))
-                  }
-                >
-                  -
-                </Button>
-              </div>
+                    className="mt-2 w-full"
+                    variant="danger"
+                    onClick={()=> handleRemoveProduct(parseInt(params.id as string))}
+                  >
+                    حذف
+                  </Button>
+              </>
             )}
-
           </div>
         </div>
       </Container>
