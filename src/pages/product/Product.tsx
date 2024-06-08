@@ -7,18 +7,23 @@ import { IProduct } from "../../types/servers";
 import { useShoppingCartContext } from "../../context/ShoppingCartContext";
 
 function Product() {
-  const params = useParams<{id: string}>();
-  const [product, setProduct] = useState<IProduct>()
+  const params = useParams<{ id: string }>();
+  const [product, setProduct] = useState<IProduct>();
 
-  const {getProductQty, handleDecreaseProductQty, handleIncreaseProductQty, cartItems} = useShoppingCartContext();
+  const {
+    getProductQty,
+    handleDecreaseProductQty,
+    handleIncreaseProductQty,
+    cartItems,
+  } = useShoppingCartContext();
 
-  useEffect(()=>{
-    getProduct(params.id as string).then(data=> {
-      setProduct(data)
-    })
-  }, [])
+  useEffect(() => {
+    getProduct(params.id as string).then((data) => {
+      setProduct(data);
+    });
+  }, []);
 
-  console.log(cartItems)
+  console.log(cartItems);
 
   return (
     <div>
@@ -33,25 +38,34 @@ function Product() {
           </div>
 
           <div className="col-span-2 p-4 bg-blue-200">
-            <img
-              className="rounded"
-              src={product?.image}
-              alt=""
-            />
+            <img className="rounded" src={product?.image} alt="" />
 
             {/*Increase */}
-            <Button onClick={()=> handleIncreaseProductQty(parseInt(params.id as string))} className="mt-2 w-full !py-3" variant="primary">Add to Cart</Button>
+            <Button
+              className="mt-2 w-full !py-3"
+              variant="primary"
+              onClick={() =>
+                handleIncreaseProductQty(parseInt(params.id as string))
+              }
+            >
+              Add to Cart
+            </Button>
 
             {/* qty */}
-            {getProductQty(parseInt(params.id as string))}
+            <span>{getProductQty(parseInt(params.id as string))}</span>
 
             {/*Decrease */}
-            <Button onClick={()=> handleDecreaseProductQty(parseInt(params.id as string))} className="mt-2 w-full !py-3" variant="primary">-</Button>
+            <Button
+              className="mt-2 w-full !py-3"
+              variant="primary"
+              onClick={() =>
+                handleDecreaseProductQty(parseInt(params.id as string))
+              }
+            >
+              -
+            </Button>
 
-            <div>
-                
-            </div>
-
+            <div></div>
           </div>
         </div>
       </Container>
