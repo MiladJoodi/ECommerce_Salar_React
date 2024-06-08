@@ -4,16 +4,21 @@ import Container from "../../components/container/Container";
 import Button from "../../components/button/Button";
 import { getProduct } from "../../services/api";
 import { IProduct } from "../../types/servers";
+import { useShoppingCartContext } from "../../context/ShoppingCartContext";
 
 function Product() {
   const params = useParams<{id: string}>();
   const [product, setProduct] = useState<IProduct>()
+
+  const {handleDecreaseProductQty, handleIncreaseProductQty, cartItems} = useShoppingCartContext();
 
   useEffect(()=>{
     getProduct(params.id as string).then(data=> {
       setProduct(data)
     })
   }, [])
+
+  console.log(cartItems)
 
   return (
     <div>
@@ -34,7 +39,9 @@ function Product() {
               alt=""
             />
 
-            <Button className="mt-2 w-full !py-3" variant="primary">Add to Cart</Button>
+            <Button onClick={()=> handleIncreaseProductQty(parseInt(params.id as string))} className="mt-2 w-full !py-3" variant="primary">Add to Cart</Button>
+
+            <Button onClick={()=> handleDecreaseProductQty(parseInt(params.id as string))} className="mt-2 w-full !py-3" variant="primary">-</Button>
 
             <div>
                 
