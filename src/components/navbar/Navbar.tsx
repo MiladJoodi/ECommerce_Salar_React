@@ -1,8 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Container from "../container/Container";
+import { useShoppingCartContext } from "../../context/ShoppingCartContext";
 
 const Navbar = () => {
+
+  const {cartQty} = useShoppingCartContext()
+
   return (
     <div className="h-14 border-b shadow flex items-center">
       <Container>
@@ -19,6 +23,7 @@ const Navbar = () => {
           <div>
             <Link to="/cart">
               <button>سبد خرید</button>
+              <span>{cartQty !== 0 ? cartQty : ""}</span>
             </Link>
           </div>
         </div>

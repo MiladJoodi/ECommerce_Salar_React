@@ -15,6 +15,7 @@ interface ShoppingCartContext{
     handleDecreaseProductQty: (id: number)=> void;
     getProductQty: (id: number)=> number;
     handleRemoveProduct: (id: number)=> void;
+    cartQty: number;
     
 }
 
@@ -86,7 +87,7 @@ export function ShoppingCartProvider({children}:ShoppingCartProvider){
 
 
     return (
-        <ShoppingCartContext.Provider value={{cartItems, handleIncreaseProductQty, handleDecreaseProductQty, getProductQty, handleRemoveProduct}}>
+        <ShoppingCartContext.Provider value={{cartItems, handleIncreaseProductQty, handleDecreaseProductQty, getProductQty, handleRemoveProduct, cartQty}}>
             {children}
         </ShoppingCartContext.Provider>
     )
