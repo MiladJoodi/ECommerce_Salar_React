@@ -21,9 +21,9 @@ const Navbar = () => {
           </ul>
 
           <div>
-            <Link to="/cart">
+            <Link className="relative" to="/cart">
               <button>سبد خرید</button>
-              <span>{cartQty !== 0 ? cartQty : ""}</span>
+              <span className="absolute w-6 h-6 bg-red-600 flex justify-center items-center rounded-full text-white top-0 -right-6">{cartQty !== 0 ? cartQty : ""}</span>
             </Link>
           </div>
         </div>
