@@ -1,12 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Button from "../button/Button";
+import { getProduct } from "../../services/api";
+import { IProduct } from "../../types/servers";
 
 interface ICartItem {
   id: number;
   qty: number;
 }
 
-function CartItem() {
+function CartItem({ id, qty }: ICartItem) {
+
+  const [product, setProduct] = useState<IProduct>()
+
+  useEffect(()=>{
+    getProduct(id).then((data)=> {
+      setProduct(data)
+    })
+  }, [])
+
   return (
     <div className="flex flex-row-reverse mt-4 border-b pb-2">
       <img
@@ -23,7 +34,7 @@ function CartItem() {
             Remove
           </Button>
           <Button variant="primary">+</Button>
-          <span className="mx-2">2</span>
+          <span className="mx-2">{qty}</span>
           <Button variant="primary">-</Button>
         </div>
       </div>
