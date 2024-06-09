@@ -12,10 +12,11 @@ function Cart() {
     <div>
       <Container>
         <div>
-          <CartItem />
-          <CartItem />
-          <CartItem />
-          <CartItem />
+          {
+            cartItems.map(item=> (
+              <CartItem {...item} />
+            ))
+          }
         </div>
 
         <div className="bg-gray-200 rounded p-6">

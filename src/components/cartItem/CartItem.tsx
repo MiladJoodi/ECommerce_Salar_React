@@ -1,6 +1,11 @@
 import React from "react";
 import Button from "../button/Button";
 
+interface ICartItem {
+  id: number;
+  qty: number;
+}
+
 function CartItem() {
   return (
     <div className="flex flex-row-reverse mt-4 border-b pb-2">
