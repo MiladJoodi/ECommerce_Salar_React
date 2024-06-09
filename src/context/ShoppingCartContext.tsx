@@ -81,8 +81,11 @@ export function ShoppingCartProvider({children}:ShoppingCartProvider){
         setCartItems(currentItems => currentItems.filter(item=> item.id != id))
     }
 
+    // all count
+    const cartQty = 
 
-    return(
+
+    return (
         <ShoppingCartContext.Provider value={{cartItems, handleIncreaseProductQty, handleDecreaseProductQty, getProductQty, handleRemoveProduct}}>
             {children}
         </ShoppingCartContext.Provider>
