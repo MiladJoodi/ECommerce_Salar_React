@@ -82,7 +82,7 @@ export function ShoppingCartProvider({children}:ShoppingCartProvider){
     }
 
     // all count
-    const cartQty = 
+    const cartQty = cartItems.reduce((totalQty, item)=> totalQty + item.qty , 0)
 
 
     return (
